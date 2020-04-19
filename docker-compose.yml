@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  digdag:
+    build:
+      context: .
+      dockerfile: digdag/Dockerfile
+    ports:
+      - "65432:65432"
+      - "65433:65433"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /tmp:/tmp
