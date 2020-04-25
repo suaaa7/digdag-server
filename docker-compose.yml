@@ -11,3 +11,14 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /tmp:/tmp
+  postgresql:
+    image: postgres:9.6.17
+    environment:
+      - POSTGRES_USER=digdag
+      - POSTGRES_PASSWORD=digdag
+      - POSTGRES_DB=digdag
+    volumes:
+      - data:/var/lib/postgresql/data
+
+volumes:
+  data:
