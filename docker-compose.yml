@@ -2,6 +2,7 @@ version: '3'
 
 services:
   digdag:
+    container_name: digdag-server
     build:
       context: .
       dockerfile: digdag/Dockerfile
@@ -11,7 +12,9 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /tmp:/tmp
+      - ./digdag/projects:/opt
   postgresql:
+    container_name: digdag-postgresql
     image: postgres:9.6.17
     environment:
       - POSTGRES_USER=digdag
