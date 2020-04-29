@@ -6,6 +6,7 @@ services:
     build:
       context: .
       dockerfile: digdag/Dockerfile
+    command: --task-log ./task_log
     ports:
       - "65432:65432"
       - "65433:65433"

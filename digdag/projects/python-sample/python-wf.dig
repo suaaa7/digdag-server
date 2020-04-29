@@ -1,0 +1,13 @@
+timezone: Asia/Tokyo
+
+_export:
+  docker:
+    image: python:3.7.7-alpine3.11
+
++step1:
+  echo>: Python Sample ${session_time}
+
++step2:
+  py>: main.main
+  x: 10
+  y: 20
