@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  digdag:
+    container_name: digdag-server
+    build:
+      context: .
+      dockerfile: digdag/Dockerfile
+    command: --task-log ./task_log
+    ports:
+      - "65432:65432"
+      - "65433:65433"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /tmp:/tmp
+      - ./digdag/projects:/opt
+  postgresql:
+    container_name: digdag-postgresql
+    image: postgres:9.6.17
+    environment:
+      - POSTGRES_USER=digdag
+      - POSTGRES_PASSWORD=digdag
+      - POSTGRES_DB=digdag
+    volumes:
+      - data:/var/lib/postgresql/data
+
+volumes:
+  data:
