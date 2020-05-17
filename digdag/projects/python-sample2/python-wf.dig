@@ -1,0 +1,18 @@
+timezone: Asia/Tokyo
+
+_export:
+  aws_region: ap-northeast-1
+  docker:
+    #image: python:3.7.7-alpine3.11
+    image: suaaa7/py-test:0.0.1
+    pull_always: true
+
++step1:
+  echo>: Python Sample ${session_time}
+
++step2:
+  _env:
+    TEST: ${secret:test}
+    TEST_JSON: ${secret:test-json}
+    TEST_JSON_PATH: /test.json
+  py>: main.main

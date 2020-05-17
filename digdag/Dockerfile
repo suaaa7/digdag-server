@@ -22,7 +22,8 @@ ENV POSTGRES_USER=digdag \
     POSTGRES_HOST=postgresql \
     POSTGRES_PORT=5432 \
     POSTGRES_DB=digdag \
-    LOG_TYPE=local
+    LOG_TYPE=local \
+    ENCRYPTION_KEY=MDEyMzQ1Njc4OTAxMjM0NQ==
 
 COPY digdag/server.properties /etc/digdag/server.properties
 COPY digdag/entrypoint.sh /usr/local/bin/entrypoint.sh
